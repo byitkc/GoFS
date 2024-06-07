@@ -1,0 +1,43 @@
+package uploadconfirmation
+
+templ Success(url string) {
+	<div class="w-full max-w-sm">
+		<h1 class="text-center text-warning">Uploaded</h1>
+		<div class="mt-2 text-white">
+			Your file has been uploaded and is now available here: { url }
+		</div>
+	</div>
+}
+
+templ SuccessWithMessage(url, msg string) {
+	<div class="w-full max-w-sm">
+		<h1 class="text-center text-warning">Uploaded</h1>
+		<div class="mt-2 text-success">
+			Your file has been uploaded and is now available here: { url }
+		</div>
+		<div class="mt-2 text-white">
+			{ msg }
+		</div>
+	</div>
+}
+
+templ FailureWithMessage(msg string) {
+	<div class="w-full max-w-sm">
+		<h1 class="text-center text-warning">Uploaded</h1>
+		<div class="mt-2 text-warning">
+			Your file has failed to upload.
+		</div>
+		<div class="mt-2 text-white">
+			{ msg }
+		</div>
+	</div>
+}
+
+templ Failure() {
+	<div class="w-full max-w-sm">
+		<h1 class="text-center text-warning">Uploaded</h1>
+		<div class="mt-2 text-warning">
+			Your file has failed to upload.
+		</div>
+	</div>
+}

@@ -1,0 +1,65 @@
+package upload
+
+import (
+	"github.com/byitkc/GoFS/view/layout"
+)
+
+// var BaseURL = ""
+
+// // uploadUrlBase := "https://test.com"
+// templ OldIndex() {
+// 	@layout.App("Home", false, true) {
+// 		// <div class="w-full max-w-full">
+// 		// 	@uploadWarningBanner.Warning()
+// 		// </div>
+// 		<div class="w-full max-w-xs mt-4 bg-base-100">
+// 			<form class="px-8 pt-6 pb-8 mb-4 rounded-lg bg-base-300" method="post" enctype="multipart/form-data">
+// 				<div class="flex items-center justify-normal">
+// 					<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file" id="fileg">Upload file</label>
+// 				</div>
+// 				<div class="flex items-center justify-normal">
+// 					<input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+// 				</div>
+// 				<div class="flex items-center justify-between mt-4">
+// 					<button class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="button">
+// 						Upload
+// 					</button>
+// 				</div>
+// 				<div class="flex items-center justify-between mt-4">
+// 					<button class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="button">
+// 						{ fmt.Sprintf("%s/%s", BaseURL, "Test") }
+// 					</button>
+// 				</div>
+// 			</form>
+// 		</div>
+// 	}
+// }
+templ Index() {
+	@layout.App("Upload", false, true) {
+		<form class="px-8 pt-6 pb-8 mt-4 mb-4 rounded-lg bg-base-300" action="/upload" method="post" enctype="multipart/form-data">
+			<div class="flex items-center mt-4 justify-normal">
+				<input type="number" id="expirationDays" name="expirationDays" placeholder="Days until Expiration" class="w-full max-w-xs input input-bordered input-primary"/>
+			</div>
+			<div class="flex items-center mt-4 justify-normal">
+				<input type="file" id="file1" name="file" required/>
+			</div>
+			<div class="flex items-center mt-4 justify-normal">
+				<button class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="submit">
+					Upload
+				</button>
+			</div>
+		</form>
+	}
+}
+
+// urlBase := "https://machine.com/files/"
+templ Confirmation(uploadURI string) {
+	@layout.App("Upload", false, false) {
+		<div class="w-full max-w-full mf-4 bg-base-100">
+			This is your upload:
+			{ uploadURI }
+			<br/>
+			<a href={ templ.SafeURL(uploadURI) }>{ uploadURI }</a>
+		</div>
+	}
+}

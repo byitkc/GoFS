@@ -1,0 +1,45 @@
+package layout
+
+import "github.com/byitkc/GoFS/component/uploadWarningBanner"
+
+templ App(title string, nav, warning bool) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link rel="stylesheet" href="/public/styles.css"/>
+			<script src="/public/fontawesome.all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+			<script src="/public/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+			<script src="/public/htmx.min.js" defer></script>
+			<title>{ title }</title>
+		</head>
+		<body>
+			if warning {
+				@uploadWarningBanner.Warning()
+			}
+			if nav {
+				<nav>
+					<div class="navbar bg-base-300">
+						<div class="navbar-start">
+							<a class="text-xl btn btn-ghost" href="/">GoFS</a>
+						</div>
+						<div class="hidden navbar-center lg:flex">
+							<ul class="px-1 menu menu-horizontal">
+								<li><a href="upload">Upload</a></li>
+								<li><a href="browse">Browse</a></li>
+								<li><a href="settings">Settings</a></li>
+							</ul>
+						</div>
+						<div class="navbar-end">
+							<a class="btn">Button</a>
+						</div>
+					</div>
+				</nav>
+			}
+			<div class="flex items-center justify-center bg-base-400">
+				{ children... }
+			</div>
+		</body>
+	</html>
+}

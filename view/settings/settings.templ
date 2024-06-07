@@ -1,0 +1,14 @@
+package settings
+
+import (
+	"github.com/byitkc/GoFS/view/layout"
+	"github.com/byitkc/GoFS/component/uploadWarning"
+)
+
+templ Index() {
+	@layout.App("Home", true, false) {
+		<div class="w-full max-w-xs my-4">
+			@uploadWarning.Warning(false)
+		</div>
+	}
+}

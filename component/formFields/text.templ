@@ -1,0 +1,11 @@
+package formFields
+
+templ textShort(id, placeholder string) {
+	<input type="text" placeholder={ placeholder } class="w-full max-w-xs input input-bordered input-primary"/>
+}
+
+templ textLong(id, placeholder string) {
+	<textarea cols="3" name="name">
+		{ placeholder }
+	</textarea>
+}

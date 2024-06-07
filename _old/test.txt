@@ -1,0 +1,4 @@
+This is just a test of the s3 upload from GoFS
+Line 3 is blank
+
+This is line 4

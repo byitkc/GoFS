@@ -1,0 +1,14 @@
+package uploadWarning
+
+templ Warning(button bool) {
+	<div class="w-full max-w-xs">
+		<h1 class="text-center text-warning">⚠️ Warning ⚠️</h1>
+		<div class="mt-2 text-white">
+			All files uploaded using this tool are hosted <u>publically</u>. Do NOT 
+			upload files containing sensitive data!
+		</div>
+		if button {
+			<button class="px-4 py-2 mt-4 font-bold text-white bg-red-500 rounded hover:bg-red-700 focus:outline-none focus:shadow-outline" type="button"><a href="/upload">I understand the risks</a></button>
+		}
+	</div>
+}
